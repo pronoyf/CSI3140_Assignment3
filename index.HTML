@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <h1>Hangman (Countries Edition)</h1>
+        <p id="wordDisplay"></p>
+        <div id="wrongLettersContainer">
+            <p>Wrong Letters: <span id="wrongLetters"></span></p>
+        </div>
+        <div id="notification-container" class="notification-container">
+            <p>You have already entered this letter</p>
+        </div>
+        <div id="popup-container" class="popup-container">
+            <div class="popup">
+                <h2 id="finalMessage"></h2>
+                <button id="playButton">Play Again</button>
+            </div>
+        </div>
+        <canvas id="hangmanCanvas" width="200" height="200"></canvas>
+        <p>Press any letter key to start guessing</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
