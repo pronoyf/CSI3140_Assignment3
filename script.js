@@ -90,7 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    playAgainButton.addEventListener('click', () => sendGameAction('reset'));
+    playAgainButton.addEventListener('click', async () => {
+        await sendGameAction('reset');
+        fetchGameState();
+    });
 
     fetchGameState();
     fetchLeaderboard();

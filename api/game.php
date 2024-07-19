@@ -1,20 +1,15 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['game']) || isset($_POST['action']) && $_POST['action'] === 'reset') {
-    resetGame();
-}
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $action = $_POST['action'];
-
-    switch ($action) {
-        case 'guess':
-            guessLetter($_POST['letter']);
-            break;
+    if (isset($_POST['action']) && $_POST['action'] === 'reset') {
+        resetGame();
+    } elseif (isset($_POST['action']) && $_POST['action'] === 'guess') {
+        guessLetter($_POST['letter']);
     }
-
     checkGameOver();
+} elseif (!isset($_SESSION['game'])) {
+    resetGame();
 }
 
 echo json_encode($_SESSION['game']);
